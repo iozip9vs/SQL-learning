@@ -34,6 +34,7 @@ error report:
 /*
 I used to work on MS SQL Server in my previous job, not sure what version. So tried here on SQL Server, and it worked well.
 So it seems not my fault.
+just found that other people also complained that hackerrank site MySQL does not support window function, sad.
 */
 select avg(total_earning), count(*)
 from (
