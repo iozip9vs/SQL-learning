@@ -27,7 +27,15 @@ where total_earning = (query from step 2)
 
 This results in a very lengthy query with multiple layers of subquery.
 
-Now I want to simplify it, and see if there is any potential to improve.
+Now I want to simplify it, and see if there is any potential to improve. By using window function, this can be done. But something strange for MySQL as Hackerrank site, it would not properly run windown function. I switched to MS SQL Server, it worked. Here is the code:
+
+select avg(total_earning), count(*)
+from (
+select employee_id, 
+    dense_rank() over (order by salary*months desc) as rnk, 
+    salary*months as total_earning
+from employee) a
+where rnk = 1
 
 # 3. Strings
 
